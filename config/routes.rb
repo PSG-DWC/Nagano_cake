@@ -12,6 +12,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 #顧客
+scope module: :public do
   root to: 'homes#top'
   get '/about' => 'homes#about'
   resources :items, only: [:index, :show]
@@ -24,6 +25,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   resources :orders, only: [:new, :create, :index, :show]
   get '/orders/confirm' => 'orders#confirm'
   get '/orders/complete' => 'orders#complete'
+end
 
 #管理者
 namespace :admin do
