@@ -39,7 +39,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
-  
+
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kane, :post_code, :address, :phone_namber, :password])
   end
@@ -56,7 +56,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    customers_path(current_member)
+    customers_path(current_customer)
   end
 
   # The path used after sign up for inactive accounts.
