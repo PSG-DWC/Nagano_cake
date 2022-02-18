@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row mt-5 mb-3 ">
+    <h3 class="bg-light d-inline-block">ショッピングカート</h3>
+    <%= link_to "カートを空にする", cart_items_destroy_all_path, class:"btn btn-danger ml-auto", method: :delete %>
+  </div>
+  <div class="row">
+    <table class="table table-bordered">
+      <thead>
+        <tr class="table-secondary">
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            (画像)
+            バナナミルフィーユ
+          </td>
+          <td>1100円</td>
+          <td>10個</td>
+          <td>11000円</td>
+          <td class="text-center"><%= link_to "削除", root_path, class:"btn btn-danger" %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="">
+      <%= link_to "買い物を続ける", root_path, class:"btn btn-primary" %>
+    </div>
+    <div class="col-3 ml-auto">
+      <table class="table table-bordered">
+        <tr>
+          <th class="table-secondary">合計金額</th>
+          <td>11000円</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto mt-5">
+      <%= link_to "情報入力に進む",root_path, class:"btn btn-success" %>
+    </div>
+  </div>
+</div>
