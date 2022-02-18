@@ -18,8 +18,10 @@ scope module: :public do
   get '/about' => 'homes#about'
   resources :items, only: [:index, :show]
   resource :customers, only: [:show, :edit, :update]
-  get '/customers/unsubscribe' => 'customers#unsubscribe'
-  get '/customers/withdraw' => 'customers#withdraw'
+    collection do
+      get 'unsubscribe'
+      patch 'withdraw'
+    end
   resources :addresses, only: [:index, :create, :destroy, :edit, :update]
   resources :cart_items, only: [:create, :index, :destroy, :update]
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
