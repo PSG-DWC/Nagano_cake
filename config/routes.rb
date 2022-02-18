@@ -12,6 +12,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 #顧客
+get '/orders/confirm' => 'public/orders#confirm'
+get '/orders/complete' => 'public/orders#complete'
 scope module: :public do
   root to: 'homes#top'
   get '/about' => 'homes#about'
@@ -23,8 +25,6 @@ scope module: :public do
   resources :cart_items, only: [:create, :index, :destroy, :update]
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
   resources :orders, only: [:new, :create, :index, :show]
-  get '/orders/confirm' => 'orders#confirm'
-  get '/orders/complete' => 'orders#complete'
 end
 
 #管理者
