@@ -3,7 +3,7 @@
     <h3 class="bg-light d-inline-block">注文情報確認</h3>
 
   </div>
-  <div class="row d-flex">
+  <div class="row d-flex ml-auto">
    <div>
      <table class="table table-bordered">
         <thead>
@@ -45,8 +45,16 @@
       </tbody>
     </table>
    </div>
+  </div>
 
+  <div class="row">
+    <p><strong>支払方法</strong></p>
+    <p class="pl-3"><%= @order.payment_method_i18n %></p>
+  </div>
 
+  <div class="row">
+    <p><strong>お届け先</strong></p>
+    <p class="pl-3">〒<%= current_customer.post_code %>　<%= current_customer.address %>　<%= current_customer.first_name %><%= current_customer.last_name %></p>
   </div>
 
   <div class="row">
