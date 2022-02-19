@@ -1,9 +1,7 @@
-<div class="contents-title text-center p-4">
-  <div class="row no-gutters">
-    <div class="col-md-8 col-sm-8 px-2 mx-sm-auto">
-      <div class="mb-4">
-        <h3><strong>新規投稿登録</strong></h3>
-      </div>
+<div class="container p-5">
+  <h3><strong>新規投稿登録</strong></h3>
+  <div class="row no-gutters contents-title text-center">
+    <div class="col-md-12 col-sm-10 p-4 mx-sm-auto">
       <%= form_with model: [:admin, @item], local:true do |f| %>
       <div class="row pb-1 ">
           <%= f.label :商品画像, class: "col-sm-3" %>
@@ -22,7 +20,7 @@
       <div class="row pb-3">
         <%= f.label :商品説明, class: "col-sm-3" %>
           <div class="col-sm-5">
-            <%= f.text_field :introduction, placeholder: "ここに説明文を記述します", class: "form-control" %>
+            <%= f.text_field :introduction, size: "50×5", placeholder: "ここに説明文を記述します", class: "form-control" %>
           </div>
       </div>
       <div class="row pb-3">
@@ -32,7 +30,7 @@
           </div>
       </div>
       <div class="row pb-3">
-        <%= f.label :税抜き価格, class: "col-sm-3" %>
+        <%= f.label :税抜価格, class: "col-sm-3" %>
           <div class="col-sm-5">
             <%= f.number_field :price, placeholder: "1000", class: "form-control" %>
           </div>
@@ -48,7 +46,6 @@
       </div>
       <%= f.submit '新規登録', class: "btn btn-primary" %>
       <% end %>
-      
       </div>
     </div>
   </div>
