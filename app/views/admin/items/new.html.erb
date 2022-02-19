@@ -1,0 +1,55 @@
+<div class="contents-title text-center p-4">
+  <div class="row no-gutters">
+    <div class="col-md-8 col-sm-8 px-2 mx-sm-auto">
+      <div class="mb-4">
+        <h3><strong>新規投稿登録</strong></h3>
+      </div>
+      <%= form_with model: [:admin, @item], local:true do |f| %>
+      <div class="row pb-1 ">
+          <%= f.label :商品画像, class: "col-sm-3" %>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <%= f.attachment_field :image %>
+            </div>
+          </div>
+      </div>
+      <div class="row pb-3">
+        <%= f.label :商品名, class: "col-sm-3" %>
+          <div class="col-sm-5">
+            <%= f.text_field :name, placeholder: "商品名", class: "form-control" %>
+          </div>
+      </div>
+      <div class="row pb-3">
+        <%= f.label :商品説明, class: "col-sm-3" %>
+          <div class="col-sm-5">
+            <%= f.text_field :introduction, placeholder: "ここに説明文を記述します", class: "form-control" %>
+          </div>
+      </div>
+      <div class="row pb-3">
+        <%= f.label :ジャンル, class: "col-sm-3" %>
+          <div class="col-sm-5">
+            <%= f.collection_select :genre_id, Genre.all, :id, :name,{prompt: "選択してください"},class: "form-control text-muted" %>
+          </div>
+      </div>
+      <div class="row pb-3">
+        <%= f.label :税抜き価格, class: "col-sm-3" %>
+          <div class="col-sm-5">
+            <%= f.number_field :price, placeholder: "1000", class: "form-control" %>
+          </div>
+      </div>
+      <div class="row pb-3">
+          <%= f.label :販売ステータス,class: "col-sm-3" %>
+          <div class="pl-5">
+              <%= f.radio_button :is_active, true, checked: true %>
+              <%= f.label :is_active, "販売中" %>
+              <%= f.radio_button :is_active, false %>
+              <%= f.label :is_active, "販売停止中" %>
+          </div>
+      </div>
+      <%= f.submit '新規登録', class: "btn btn-primary" %>
+      <% end %>
+      
+      </div>
+    </div>
+  </div>
+</div>
