@@ -4,7 +4,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-    @item = Item.all
+    @items = Item.all.page(params[:page])
   end
 
   def create
