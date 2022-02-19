@@ -24,8 +24,12 @@ scope module: :public do
     end
   end
   resources :addresses, only: [:index, :create, :destroy, :edit, :update]
-  resources :cart_items, only: [:create, :index, :destroy, :update]
-  delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+  resources :cart_items, only: [:create, :index, :destroy, :update] do
+    collection do
+      delete 'destroy_all'
+    end
+  end
+
   resources :orders, only: [:new, :create, :index, :show] do
     collection do
       get 'confirm'
