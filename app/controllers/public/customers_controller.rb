@@ -5,6 +5,7 @@ class Public::CustomersController < ApplicationController
 
   def edit
     @customer = current_customer
+    redirect_to customers_path(current_customer) unless current_customer == @customer
   end
 
   def update
