@@ -17,11 +17,12 @@ scope module: :public do
   root to: 'homes#top'
   get '/about' => 'homes#about'
   resources :items, only: [:index, :show]
-  resource :customers, only: [:show, :edit, :update]
+  resource :customers, only: [:show, :edit, :update] do
     collection do
       get 'unsubscribe'
       patch 'withdraw'
     end
+  end
   resources :addresses, only: [:index, :create, :destroy, :edit, :update]
   resources :cart_items, only: [:create, :index, :destroy, :update]
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
