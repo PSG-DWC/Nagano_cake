@@ -40,7 +40,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.postage = 800
-    
+
     if @order.save
         cart_items = current_customer.cart_items
         cart_items.each do |cart|
@@ -70,7 +70,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-
+    @orders = Order.where(customer: current_customer)
   end
 
   def show
