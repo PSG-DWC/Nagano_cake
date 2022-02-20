@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5 class="offset-md-2" style="background-color: #eeeeee; font-weight: bold" >注文履歴詳細</h5>
+
+     <!--会員の注文履歴詳細-->
+     <table><tr><td>
+     　<!--会員注文情報-->
+      <div style="margin: 10px; font-weight:bold;">注文情報</div>
+      <table class="table table-bordered" style="boder-width: thick">
+       <tr>
+         <td class"table-active">注文日</td>
+         <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+       </tr>
+       <tr>
+         <td class"table-active">配送先</td>
+         <td>
+           〒<%= @order.post_code %><br><!--配送先郵便番号-->
+           <%= @order.address %><br><!--配送先住所-->
+           <%= @order.name %><!--配送先宛名-->
+         </td>
+       </tr>
+       <tr>
+         <td class"table-active">支払方法</td>
+         <td><%= @order.payment_method %></td>
+       </tr>
+       <tr>
+         <td class"table-active">ステータス</td>
+         <td><%= @order.status %></td>
+       </tr>
+      </table>
+
+      <!--請求情報-->
+      <div style="margin: 10px; font-weight:bold;">請求情報</div>
+      <table class="table table-bordered" style="boder-width: thick">
+       <tr>
+         <td class"table-active">商品合計</td>
+         <td><%= (@customer.total_payment - @customer.postage).to_s(:delimited) %></td>
+       </tr>
+       <tr>
+         <td class"table-active">配送料</td>
+         <td><%= (@customer.postage).to_s(:delimited) %></td>
+       </tr>
+       <tr>
+         <td class"table-active">ご請求額</td>
+         <td><%= (@customer.total_payment).to_s(:delimited) %></td>
+       </tr>
+      </table>
+    </td></tr></table>
+       
+       <!--注文内容-->
+      <div style="margin: 10px; font-weight:bold;">注文内容</div>
+      <table>
+        <tr style="background-color: #eeeeee;">
+          <th>商品</th>
+          <th>単価(税込)</th>
+          <th>個数</th>
+          <th>小計</th>
+        </tr>
+        <% @order_details.each do |order_detail| %>
+          <tr>
+            <td style="padding: 15px 10px;"><%= order_detail.item.name %></td>
+            <td style="padding: 15px 10px;"><%= (order_detail.price).to_s(:delimited) %></td>
+            <td style="padding: 15px 10px;"><%= order_detail.amount %></td>
+            <td style="padding: 15px 10px;"><%= (order_detail.price*order_detail.amount).to_s(:delimited) %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
