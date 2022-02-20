@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-2">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="text-center">ジャンル検索</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre|  %>
+            <tr>
+              <td><%= link_to genre.name, items_path(sort:"#{genre.name}") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-5 pl-3">
+      <%= attachment_image_tag @item, :image, size: "400x300" %>
+    </div>
+    <div class="col-5">
+      <h4><strong><%= @item.name %></strong></h4>
+      <p class="mt-5 mb-5"><%=  @item.introduction %></p>
+      <h3 class="d-inline"><strong>¥<%=(@item.price*1.1).floor%></strong></h3><p class="d-inline mt-5">(税込)</p>
+      <div class="mt-5">
+         <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
+            <%= f.select :amount, [['1',1], ['2',2], ['3',3],['4',4], ['5',5], ['6',6],['7',7], ['8',8], ['9',9]],include_blank: "個数選択"%>
+            <%= f.hidden_field :item_id, value: @item.id %>
+            <%= f.submit "カートに入れる",class:"btn btn-success ml-3" %>
+          <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

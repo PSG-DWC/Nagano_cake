@@ -1,5 +1,21 @@
 class Public::CartItemsController < ApplicationController
   def create
+
+
+
+    @cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
+    if @cart_item.present?
+      @cart_item.amount += params[:cart_item][:amount].to_i
+    else
+      @cart_item = current_customer.cart_items.new(cart_item_params)
+    end
+
+    if @cart_item.save
+      redirect_to cart_items_path
+    else
+      render :show
+    end
+
   end
 
   def index
@@ -32,7 +48,7 @@ class Public::CartItemsController < ApplicationController
   private
 
   def cart_item_params
-    params.require(:cart_item).permit(:amount)
+    params.require(:cart_item).permit(:amount, :item_id)
   end
 
 end
