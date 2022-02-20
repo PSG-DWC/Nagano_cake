@@ -4,3 +4,11 @@
         payment_method:
           credit_card: "クレジットカード"
           transfer: "銀行振込"
+
+
+        order_detail:
+         making_status:
+          before:            "着手不可"
+          wait:              "製作待ち"
+          make:              "製作中"
+          finish:            "製作完了"
