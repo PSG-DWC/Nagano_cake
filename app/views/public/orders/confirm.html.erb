@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row mt-5 mb-3 ">
     <h3 class="bg-light d-inline-block">注文情報確認</h3>
-
   </div>
+  <%= render "public/shared/error_messages", resource: @order %>
   <div class="row">
      <div class="col-8">
         <table class="table table-bordered">
@@ -18,7 +18,7 @@
             <% @cart_items.each do |cart_item| %>
               <tr>
                 <td>
-                  <%= attachment_image_tag cart_item.item, :image %>
+                  <%= attachment_image_tag cart_item.item, :image, size: "100x50" %>
                   <%= cart_item.item.name %>
                 </td>
                 <td><%= (cart_item.item.price*1.1).floor %></td>

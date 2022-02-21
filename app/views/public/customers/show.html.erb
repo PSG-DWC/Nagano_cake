@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h5 class="offset-md-2" style="background-color: #eeeeee; font-weight: bold" >マイページ</h5>
+      <h4 class="col-md-2" style="background-color: #eeeeee; display: inline-block; padding:0 20px; font-weight: bold; margin:50px 0;" >マイページ</h4>
       <div class="form-group" style="display: flex">
           <h5 class="col-md-2" style="font-weight: bold;">登録情報</h5>
           <%= link_to"編集する",edit_customers_path,class: "btn btn-success" %>
       </div>
-
+　　　<!--会員情報-->
       <table class="table table-bordered" style="boder-width: thick">
        <tr>
          <td class"table-active">氏名</td>
@@ -33,12 +33,14 @@
          <td><%= @customer.email %></td>
        </tr>
       </table>
-      <div class="address_link" style="display: flex">
-        <h5>配送先</h5>
 
+      <!--配送先、注文履歴-->
+      <div class="address_link" style="display: flex; padding:20px;" >
+        <h5 class="col-md-2" style="font-weight: bold;">配送先</h5>
+         <%= link_to"一覧を見る",addresses_path,class: "btn btn-primary" %>
       </div>
-      <div class="address_link" style="display: flex">
-        <h5>注文履歴</h5>
+      <div class="order_detail" style="display: flex; padding:0 20px">
+        <h5 class="col-md-2" style="font-weight: bold;">注文履歴</h5>
         <%= link_to"一覧を見る",orders_path,class: "btn btn-primary" %>
       </div>
     </div>
