@@ -24,7 +24,7 @@
           <%= f.label :登録済住所から選択 %><br>
           <div class="ml-5">
             <!--Address.allをcurrent_customer.addresses.allに変更する-->
-            <%= f.collection_select(:address_book, current_customer.addresses.all, :id, :address,include_blank: "選択してください") %><br>
+            <%= f.collection_select(:address_book, current_customer.addresses.all, :id, :address) %><br>
           </div>
 
           <div class="mt-3">

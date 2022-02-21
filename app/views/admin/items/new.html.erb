@@ -1,5 +1,6 @@
 <div class="container p-5">
   <h3><strong>新規投稿登録</strong></h3>
+  <%= render "public/shared/error_messages", resource: @item %>
   <div class="row no-gutters contents-title text-center">
     <div class="col-md-12 col-sm-10 p-4 mx-sm-auto">
       <%= form_with model: [:admin, @item], local:true do |f| %>
