@@ -29,7 +29,7 @@ class Admin::ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to admin_items_path
     else
-      render edit
+      render :edit
     end
   end
 

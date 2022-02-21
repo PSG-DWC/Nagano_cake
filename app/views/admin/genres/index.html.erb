@@ -2,7 +2,12 @@
   <div class="row mt-5">
      <h4 class="ml-5 bg-light">ジャンル一覧・追加</h4>
   </div>
+  <div class="row">
+    <%= render "public/shared/error_messages", resource: @genre %>
+  </div>
+
   <div class="row mt-5">
+
     <%= form_with model: @genre, url: admin_genres_path, method: :post, local: true do |f| %>
       <%= f.label :ジャンル名 %>
       <%= f.text_field :name %>

@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h4 class="offset-md-2" style="background-color: #eeeeee; display: inline-block; padding:0 20px; font-weight: bold;margin:50px 0;" >配送先編集</h4>
-
+     <h4 class="offset-md-2" style="background-color: #eeeeee; display: inline-block; padding:0 20px; font-weight: bold;margin:50px 0;" >配送先編集</h4>
+      <%= render "public/shared/error_messages", resource: @address %>
      <!--配送先編集項目-->
     　<%= form_with scope: :address, url: address_path(@address), method: :patch, local: true do |f| %>
       　<div class="form_group" align="center" style="display: flex">

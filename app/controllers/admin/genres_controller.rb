@@ -4,6 +4,7 @@ class Admin::GenresController < ApplicationController
     if @genre.save
       redirect_to request.referer
     else
+      @genres = Genre.all
       render :index
     end
   end

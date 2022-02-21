@@ -22,6 +22,11 @@ class Public::OrdersController < ApplicationController
       @order.address = params[:order][:address]
     end
 
+     if @order.name == "" || @order.post_code == "" ||@order.address == ""
+        flash[:alert] = "配送先を確認してください"
+        render :new
+      end
+
     @order.total_payment = params[:total_price].to_i + @order.postage
 
     @cart_items = current_customer.cart_items
@@ -56,6 +61,14 @@ class Public::OrdersController < ApplicationController
        cart_items.destroy_all
        redirect_to complete_orders_path
     else
+      @cart_items = current_customer.cart_items
+      @cart_items = current_customer.cart_items
+      @total_price = 0
+      @cart_items.each do |cart_item|
+        @item = Item.find_by(id: cart_item.item_id)
+        @price = (@item.price * 1.1)*(cart_item.amount)
+        @total_price += @price
+      end
       render :confirm
     end
 
@@ -70,12 +83,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.where(customer: current_customer)
+
   end
 
   def show
-    @order = Order.find(params[:id])
-    @order_details = @order.order_details.all
+
   end
 
   private
