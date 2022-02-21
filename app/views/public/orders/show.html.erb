@@ -7,7 +7,7 @@
      <table><tr><td>
      　<!--会員注文情報-->
       <div style="margin: 10px; font-weight:bold;">注文情報</div>
-      <table class="table table-bordered" style="boder-width: thick">
+      <table border="1" style="margin:10px;">
        <tr>
          <td class"table-active">注文日</td>
          <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
@@ -32,25 +32,25 @@
 
       <!--請求情報-->
       <div style="margin: 10px; font-weight:bold;">請求情報</div>
-      <table class="table table-bordered" style="boder-width: thick">
+      <table border="1" style="margin:10px;">
        <tr>
          <td class"table-active">商品合計</td>
-         <td><%= (@customer.total_payment - @customer.postage).to_s(:delimited) %></td>
+         <td><%= (@order.total_payment).to_s(:delimited) %></td>
        </tr>
        <tr>
          <td class"table-active">配送料</td>
-         <td><%= (@customer.postage).to_s(:delimited) %></td>
+         <td><%= (@order.postage).to_s(:delimited) %></td>
        </tr>
        <tr>
          <td class"table-active">ご請求額</td>
-         <td><%= (@customer.total_payment).to_s(:delimited) %></td>
+         <td><%= (@order.total_payment + @order.postage).to_s(:delimited) %></td>
        </tr>
       </table>
     </td></tr></table>
 
        <!--注文内容-->
       <div style="margin: 10px; font-weight:bold;">注文内容</div>
-      <table>
+      <table border="1" style="margin:10px;">
         <tr style="background-color: #eeeeee;">
           <th>商品</th>
           <th>単価(税込)</th>
@@ -60,9 +60,9 @@
         <% @order_details.each do |order_detail| %>
           <tr>
             <td style="padding: 15px 10px;"><%= order_detail.item.name %></td>
-            <td style="padding: 15px 10px;"><%= (order_detail.price).to_s(:delimited) %></td>
+            <td style="padding: 15px 10px;"><%= (order_detail.price*1.1).floor %></td>
             <td style="padding: 15px 10px;"><%= order_detail.amount %></td>
-            <td style="padding: 15px 10px;"><%= (order_detail.price*order_detail.amount).to_s(:delimited) %></td>
+            <td style="padding: 15px 10px;"><%= (order_detail.price*1.1*order_detail.amount).floor %></td>
           </tr>
         <% end %>
       </table>
