@@ -30,7 +30,7 @@
           <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch, local:true do |f| %>
             <tr>
               <th>注文ステータス</th>
-              <td><%= f.select :status, Order.status.keys, {} %></td>
+              <td><%= f.select :status, Order.statuses.keys, {} %></td>
             </tr>
             <tr>
               <th>   </th>
@@ -64,7 +64,7 @@
             <td><%= order_detail.price %></td>
             <td><%= order_detail.amount %></td>
             <td><%= order_detail.price * order_detail.amount %></td>
-            <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), local:true do |f| %>
+            <%= form_with model: order_detail, url: admin_orders_detail_path(order_detail.id), local:true do |f| %>
             <td><%= f.select :making_status, OrderDetail.making_statuses.keys, {} %></td>
             <td><%= f.submit '更新', class: 'btn btn-success' %></td>
             <% end %>
