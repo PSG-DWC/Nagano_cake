@@ -2,24 +2,29 @@
   <div class="row">
     <div class="col">
      <h4 class="offset-md-2" style="background-color: #eeeeee; display: inline-block; padding:0 20px; font-weight: bold;margin:50px 0;" >配送先編集</h4>
-      <%= render "public/shared/error_messages", resource: @address %>
+
      <!--配送先編集項目-->
     　<%= form_with scope: :address, url: address_path(@address), method: :patch, local: true do |f| %>
-      　<div class="form_group" align="center" style="display: flex">
-          <div class="col-md-4"><%= f.label :post_code, "郵便番号（ハイフンなし）" %></div>
-          <div class="col-md-4"><%=f.text_field :post_code, :placeholder => "0000000" %></div>
-        </div>
+    　 <table>
+    　   <thead>
+    　    <%= render "public/shared/error_messages", resource: @address %>
+      　 <tr>
+           <td class="col-md-4" style="padding: 15px 10px;"><%= f.label :post_code, "郵便番号（ハイフンなし）" %></td>
+           <td class="col-md-4" style="padding: 15px 10px;"><%=f.text_field :post_code, :placeholder => "0000000" %></td>
+         </tr>
 
-        <div class="form_group" align="center" style="display: flex">
-          <div class="col-md-4"><%= f.label :address, "住所" %></div>
-          <div class="col-md-4"><%=f.text_field :address, :placeholder => "東京都渋谷区代々木神園町0-0" %></div>
-        </div>
+         <tr>
+           <td class="col-md-4" style="padding: 15px 10px;"><%= f.label :address, "住所" %></td>
+           <td class="col-md-4" style="padding: 15px 10px;"><%=f.text_field :address, :placeholder => "東京都渋谷区代々木神園町0-0" %></td>
+         </tr>
 
-        <div class="form_group" align="center" style="display: flex">
-          <div class="col-md-4"><%= f.label :name, "宛名" %></div>
-          <div class="col-md-4"><%=f.text_field :name, :placeholder => "令和道子" %></div>
-          <div class="col-md-4"><%=f.submit "変更を保存", class: "btn btn-success" %></div>
-        </div>
+         <tr>
+           <td class="col-md-4" style="padding: 15px 10px;"><%= f.label :name, "宛名" %></td>
+           <td class="col-md-4" style="padding: 15px 10px;"><%=f.text_field :name, :placeholder => "令和道子" %></td>
+           <td class="col-md-4" style="padding: 15px 10px;"><%=f.submit "変更を保存", class: "btn btn-success" %></td>
+         </tr>
+        </thead>
+       </table>
       <% end %>
     </div>
   </div>

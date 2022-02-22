@@ -7,30 +7,30 @@
           <%= link_to"編集する",edit_customers_path,class: "btn btn-success" %>
       </div>
 　　　<!--会員情報-->
-      <table class="table table-bordered" style="boder-width: thick">
+      <table border="1" style="margin:10px;">
        <tr>
-         <td class"table-active">氏名</td>
-         <td><%= @customer.last_name %> <%=@customer.first_name%></td>
+         <th style="padding: 15px 10px; background-color: #eeeeee;">氏名</th>
+         <td style="padding: 15px 10px;"><%= @customer.last_name %> <%=@customer.first_name%></td>
        </tr>
        <tr>
-         <td class"table-active">カナ</td>
-         <td><%= @customer.last_name_kana %> <%=@customer.first_name_kane%></td>
+         <th style="padding: 15px 10px; background-color: #eeeeee;">カナ</th>
+         <td style="padding: 15px 10px;"><%= @customer.last_name_kana %> <%=@customer.first_name_kane%></td>
        </tr>
        <tr>
-         <td class"table-active">郵便番号</td>
-         <td><%= @customer.post_code %></td>
+         <th style="padding: 15px 10px; background-color: #eeeeee;">郵便番号</th>
+         <td style="padding: 15px 10px;"><%= @customer.post_code %></td>
        </tr>
        <tr>
-         <td class"table-active">住所</td>
-         <td><%= @customer.address %></td>
+         <th style="padding: 15px 10px; background-color: #eeeeee;">住所</th>
+         <td style="padding: 15px 10px;"><%= @customer.address %></td>
        </tr>
        <tr>
-         <td class"table-active">電話番号</td>
-         <td><%= @customer.phone_namber %></td>
+         <th style="padding: 15px 10px; background-color: #eeeeee;">電話番号</th>
+         <td style="padding: 15px 10px;"><%= @customer.phone_namber %></td>
        </tr>
        <tr>
-         <td class"table-active">メールアドレス</td>
-         <td><%= @customer.email %></td>
+         <th style="padding: 15px 10px; background-color: #eeeeee;">メールアドレス</th>
+         <td style="padding: 15px 10px;"><%= @customer.email %></td>
        </tr>
       </table>
 
