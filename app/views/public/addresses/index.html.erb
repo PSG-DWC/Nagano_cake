@@ -3,7 +3,7 @@
     <div class="col">
       <h4 class="offset-md-2" style="background-color: #eeeeee; display: inline-block; padding:0 20px; font-weight: bold; margin:50px 0;" >配送先登録/一覧</h4>
        <%= form_with scope: :address, url: addresses_path(@address), method: :post, local: true do |f| %>
-       <table align="center">
+       <table style="margin-bottom:30px;">
          <thead>
            <%= render "public/shared/error_messages", resource: @address %>
            <tr>
@@ -24,12 +24,12 @@
        <% end %>
 
 
-       <table align="center" border="1">
+       <table border="1">
          <tr style="background-color: #eeeeee">
-           <th>郵便番号</th>
-           <th>住所</th>
-           <th>宛名</th>
-           <th></th>
+           <th style="padding: 15px 10px;">郵便番号</th>
+           <th style="padding: 15px 10px;">住所</th>
+           <th style="padding: 15px 10px;">宛名</th>
+           <th colspan="2" style="padding: 15px 10px;"></th>
          </tr>
          <% @addresses.each do |address| %>
           <tr>
