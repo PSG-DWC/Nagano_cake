@@ -47,7 +47,7 @@ namespace :admin do
   resources :orders, only: [:index, :show, :update]
   resources :customers, only: [:index, :show, :edit, :update]
   resources :items, only: [:new, :create, :index, :show, :edit, :update]
-  resources :orders_details, only: [:update]
+  resources :order_details, only: [:update]
 end
 
 

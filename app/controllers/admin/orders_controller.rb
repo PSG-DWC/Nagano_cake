@@ -19,8 +19,10 @@ class Admin::OrdersController < ApplicationController
        order_detail.save
      end
     end
+    flash[:notice] = "注文ステータスの更新に成功しました"
+    redirect_to admin_order_path(@order)
    else
-    redirect_to request.referer
+    render :show
    end
  end
 
