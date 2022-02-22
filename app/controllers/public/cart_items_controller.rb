@@ -1,8 +1,7 @@
 class Public::CartItemsController < ApplicationController
+  before_action :authenticate_customer!
+  
   def create
-
-
-
     @cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
     if @cart_item.present?
       @cart_item.amount += params[:cart_item][:amount].to_i
