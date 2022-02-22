@@ -3,6 +3,7 @@
     <h3 class="bg-light offset-1">注文情報入力</h3>
   </div>
   <div class="row mt-3">
+    <dvi class="col-9">
       <%= form_with model: @order,url: confirm_orders_path,method: :get, local: true do |f| %>
        <h4 class="d-inline-block"><strong>支払方法</strong></h4><br>
        <div class="ml-5">
@@ -54,8 +55,10 @@
        </div>
 
       <% end %>
+    </dvi>
+    <div class="col-3">
+      <%= image_tag('takuhai_truck_man_nimotsu', size: '300x300') %>
+    </div>
   </div>
-  <div class="row">
 
-  </div>
 </div>
