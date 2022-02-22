@@ -13,12 +13,12 @@
   <body>
     <%= render 'layouts/header' %>
     <% if flash[:notice] %>
-      <div class="notification is-info">
+      <div class="notification text-info">
         <p class="notice"><%= notice %></p>
       </div>
     <% end %>
     <% if flash[:alert] %>
-      <div class="notification is-danger">
+      <div class="notification text-danger">
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
