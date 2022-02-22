@@ -23,7 +23,7 @@ class Public::OrdersController < ApplicationController
     end
 
      if @order.name == "" || @order.post_code == "" ||@order.address == ""
-        flash[:alert] = "配送先を確認してください"
+        flash.now[:alert] = "配送先を確認してください"
         render :new
       end
 

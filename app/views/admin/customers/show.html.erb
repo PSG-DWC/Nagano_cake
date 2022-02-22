@@ -44,12 +44,12 @@
     <div class="col-3">会員ステータス</div>
     <div class="col-9">
       <% if @customer.is_deleted == true %>
-        <div class="form-inline text-muted">
-          <strong>退会</strong>
-        </div>
-      <% else %>
         <div class="form-inline text-success">
           <strong>有効</strong>
+        </div>
+      <% else %>
+        <div class="form-inline text-danger">
+          <strong>退会</strong>
         </div>
       <% end %>
     </div>
