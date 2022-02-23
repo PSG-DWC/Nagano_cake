@@ -1,0 +1,21 @@
+<!--退会確認画面-->
+<div class="container">
+  <div class="row">
+    <div class="col" style="text-align: center">
+      <h4 style="margin: 100px; font-weight: bold">本当に退会しますか？</h4>
+
+      <!--退会確認コメント-->
+      <div style="margin: 40px 0">
+        退会すると、会員登録機能や<br>
+        これまでの購入履歴が閲覧できなくなります。<br>
+        退会する場合は、「退会する」をクリックしてください。
+      </div>
+
+      <!--退会確認ボタン-->
+      <div class="form-group" style="display: inline-block; margin:0 auto">
+        <%= link_to "退会しない",customers_path,class: "btn btn-primary" %>
+        <%= link_to " 退会する ",withdraw_customers_path,method: :patch, class: "btn btn-danger" %>
+
+    </div>
+  </div>
+</div>

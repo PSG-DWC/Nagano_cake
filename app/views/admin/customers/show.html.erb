@@ -1,0 +1,60 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-12 mt-4">
+      <h3><strong><%= "#{@customer.last_name}#{@customer.first_name}" %>さんの会員情報</strong></h3>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-3">会員ID</div>
+    <div class="col-9"><%= @customer.id %></div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-3">氏名</div>
+    <div class="col-9"><%= "#{@customer.last_name}" %> <%="#{@customer.first_name}" %></div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-3">フリガナ</div>
+    <div class="col-9"><%= "#{@customer.last_name_kana}" %> <%="#{@customer.first_name_kane}" %></div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-3">郵便番号</div>
+    <div class="col-9"><%= @customer.post_code %></div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-3">住所</div>
+    <div class="col-9"><%= @customer.address %></div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-3">電話番号</div>
+    <div class="col-9"><%= @customer.phone_namber %></div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-3">メールアドレス</div>
+    <div class="col-9"><%= @customer.email %></div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-3">会員ステータス</div>
+    <div class="col-9">
+      <% if @customer.is_deleted == false %>
+        <div class="form-inline">有効</div>
+      <% else %>
+        <div class="form-inline">退会</div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-3"></div>
+    <div class="col-2"><%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success" %></div>
+    <div class="col-3"><%= link_to "注文履歴一覧を見る", admin_orders_path(customer_id: @customer), class: "btn btn-primary" %></div>
+  </div>
+
+</div>
